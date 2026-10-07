@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="Playlist moodboard">
+  <rect width="320" height="320" fill="#faf7ff"/>
+  <g stroke="#a66ee8" stroke-width="2" opacity="0.5" fill="none">
+    <path d="M0 40 H320 M0 80 H320 M0 120 H320 M0 160 H320 M0 200 H320 M0 240 H320 M0 280 H320"/>
+  </g>
+  <circle cx="96" cy="180" r="34" fill="#f2a36f"/>
+  <circle cx="96" cy="180" r="10" fill="#faf7ff"/>
+  <circle cx="228" cy="120" r="22" fill="#33264a" opacity="0.85"/>
+  <rect x="180" y="188" width="110" height="12" rx="6" fill="#a66ee8" opacity="0.7"/>
+  <rect x="180" y="210" width="74" height="12" rx="6" fill="#a66ee8" opacity="0.4"/>
+  <text x="26" y="52" font-family="Georgia, serif" font-size="22" fill="#33264a">shared playlist</text>
+  <text x="26" y="76" font-family="Arial, sans-serif" font-size="11" letter-spacing="2" fill="#6f6383">MOODBOARD / 02</text>
+</svg>

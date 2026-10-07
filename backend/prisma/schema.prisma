@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+model User {
+  id               String   @id @default(uuid())
+  email            String   @unique
+  username         String   @unique
+  passwordHash     String
+  interestsJson     String   @default("[]")
+  languagePref     String   @default("en")
+  isProfilePublic  Boolean  @default(true)
+  isOnline         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  sentRequests      FriendRequest[] @relation("requester")
+  receivedRequests  FriendRequest[] @relation("recipient")
+  friendshipsA      Friendship[] @relation("friendA")
+  friendshipsB      Friendship[] @relation("friendB")
+  blocksGiven       Block[] @relation("blocker")
+  blocksReceived    Block[] @relation("blocked")
+  reportsMade       Report[] @relation("reporter")
+  reportsReceived   Report[] @relation("reported")
+}
+
+model FriendRequest {
+  id          String   @id @default(uuid())
+  requesterId String
+  recipientId String
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+  requester   User @relation("requester", fields: [requesterId], references: [id], onDelete: Cascade)
+  recipient   User @relation("recipient", fields: [recipientId], references: [id], onDelete: Cascade)
+  @@unique([requesterId, recipientId])
+}
+
+model Friendship {
+  id        String   @id @default(uuid())
+  userAId   String
+  userBId   String
+  createdAt DateTime @default(now())
+  userA     User @relation("friendA", fields: [userAId], references: [id], onDelete: Cascade)
+  userB     User @relation("friendB", fields: [userBId], references: [id], onDelete: Cascade)
+  @@unique([userAId, userBId])
+}
+
+model Block {
+  id        String   @id @default(uuid())
+  blockerId String
+  blockedId String
+  createdAt DateTime @default(now())
+  blocker   User @relation("blocker", fields: [blockerId], references: [id], onDelete: Cascade)
+  blocked   User @relation("blocked", fields: [blockedId], references: [id], onDelete: Cascade)
+  @@unique([blockerId, blockedId])
+}
+
+model Report {
+  id         String   @id @default(uuid())
+  reporterId String
+  reportedId String
+  reason     String
+  createdAt  DateTime @default(now())
+  reporter   User @relation("reporter", fields: [reporterId], references: [id], onDelete: Cascade)
+  reported   User @relation("reported", fields: [reportedId], references: [id], onDelete: Cascade)
+}

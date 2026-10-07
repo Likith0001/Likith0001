@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "//": "App build only compiles src/. Tests live in test/ and are type-checked by tsconfig.test.json (used by Jest + `npm run typecheck`).",
+  "include": ["src/**/*.ts"]
+}

@@ -1,0 +1,13 @@
+node_modules/
+.next/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+*.log
+*.db
+*.db-journal
+.vscode/settings.json
+backend/tmp-check.ts
+backend/tmp-e2e.ts

@@ -1,0 +1,46 @@
+{
+  "name": "ghostchat-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --delay 250ms src/server.ts",
+    "build": "tsc",
+    "test": "cross-env NODE_OPTIONS=--max-old-space-size=3072 jest",
+    "test:watch": "cross-env NODE_OPTIONS=--max-old-space-size=3072 jest --watch",
+    "test:cov": "cross-env NODE_OPTIONS=--max-old-space-size=3072 jest --coverage",
+    "typecheck": "tsc --noEmit -p tsconfig.test.json",
+    "db:setup": "prisma generate && prisma db push"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "socket.io": "^4.7.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^30.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.4.5",
+    "cross-env": "^10.1.0",
+    "jest": "^30.5.2",
+    "nodemon": "^3.0.1",
+    "prisma": "^5.0.0",
+    "ts-jest": "^29.4.12",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "@prisma/client@5.22.0": true,
+    "@prisma/engines@5.22.0": true,
+    "bcrypt@5.1.1": true,
+    "prisma@5.22.0": true,
+    "unrs-resolver@1.12.2": true
+  }
+}
